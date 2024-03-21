@@ -1,0 +1,46 @@
+.container{
+    height: fit-content;
+    min-height: 15rem;
+    width: 18.5rem;
+    border-radius: 4px;
+    box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.titleContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.headerContainer{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=radio]{
+    display: none;
+}
+.link{
+    text-decoration: underline;
+    font-style: normal;
+}
+.link:hover{
+    cursor: pointer;
+}
+@media only screen and (max-width: 450px) {
+    .container{
+        width: 15rem;
+    }
+}

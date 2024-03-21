@@ -1,0 +1,76 @@
+.topBarContainer{
+    position: fixed;
+    top: 0;
+    z-index: 60;
+    width: 100%;
+    height: 15vh;
+    background-color: whitesmoke;
+    box-shadow: 0 15px 30px -2px rgba(0, 0, 0, 0.3);
+    display: flex;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+.navigation{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.navigation p{
+    font-size: 2rem;
+    background-color: whitesmoke;
+}
+.navigation p:hover{
+    cursor: pointer;
+    filter: brightness(95%);
+    transform: translateY(1px);
+    background-color: white;
+}
+
+.navItem{
+    color: black;
+    text-decoration: none;
+}
+.logoAndTitleContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding-left: 2rem;
+    height: 100%;
+}
+.logoAndTitleContainer:hover{
+    cursor: pointer;
+}
+.logoAndTitleContainer img{
+    width: 20%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .navigation p{
+        font-size: 1.5rem;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .navigation p{
+        font-size: 1.25rem;
+    }
+    h1{
+        font-size: 1.25rem;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .navigation p{
+        font-size: 1rem;
+    }
+    h1{
+        font-size: 1rem;
+    }
+}

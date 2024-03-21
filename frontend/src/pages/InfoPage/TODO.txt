@@ -1,0 +1,17 @@
+this page will be passed in an object with all of the data
+
+example={
+    header: "About Us"
+    paragraph:{
+        header: "title",
+        content: "content"
+    },
+    paragraph:{
+        header: "title",
+        smallerHeader: "Smaller header"
+        content: "content"
+    }
+}
+
+the file will interperit paragraphs, and create elements based off of them
+this will make this page more modular and we can use it for possibly many things

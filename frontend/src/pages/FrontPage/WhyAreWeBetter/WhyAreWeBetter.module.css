@@ -1,0 +1,20 @@
+
+.sectionContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    margin-top: 6rem;
+}
+
+.sectionContainer h2{
+    padding-bottom: 2rem;
+}
+
+.sectionContainer div{
+    display: inline-block;
+    text-align: center;
+    margin: 1rem 1rem;
+}

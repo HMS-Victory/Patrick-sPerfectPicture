@@ -1,0 +1,133 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
+    background-color: whitesmoke;
+}
+.slide img{
+    width: 20rem;
+    height: auto;
+    margin: 0 auto
+}
+.slide{
+    transform: scale(0.2);
+    transition: transform 300ms;
+    opacity: 0.5;
+}
+.activeSlide{
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.arrow{
+    background-color: whitesmoke;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow svg{
+    transition: color 300ms;
+}
+
+.arrow svg:hover{
+    filter: brightness(95%)
+}
+
+.next{
+    right: 0%;
+    top: 50%;
+}
+.prev{
+    left: 0%;
+    top: 50%;
+}
+
+
+
+
+
+
+
+/* for alternative slider */
+.sliderContainer{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-arrow{
+    position:absolute;
+    top: 50%;
+    right: 18px;
+    font-size: 3rem;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 100px;
+    user-select: none;
+}
+.left-arrow{
+    position:absolute;
+    top: 50%;
+    left: 8px;
+    font-size: 3rem;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 100px;
+    user-select: none;
+}
+
+.slideHolder{
+    opacity: 0;
+    transition-duration: 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.slideHolder.active{
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 1100px) {
+    .container{
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .slide{
+        transform: scale(0.1);
+    }
+    .activeSlide{
+        transform: scale(0.75);
+    }
+}
+@media only screen and (max-width: 550px) {
+    .slide{
+        transform: scale(0.1);
+    }
+    .activeSlide{
+        transform: scale(0.5);
+    }
+}
+@media only screen and (max-width: 550px) {
+    .slide{
+        transform: scale(0.05);
+    }
+    .activeSlide{
+        transform: scale(0.35);
+    }
+}
