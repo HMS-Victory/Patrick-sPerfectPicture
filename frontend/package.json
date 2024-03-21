@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm i react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
+    "build": "npm i react-scripts build && echo '/* /public/index.html  200' | cat >build/_redirects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
