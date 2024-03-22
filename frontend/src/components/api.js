@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3042";
+const url = process.env.BASE_URL;
 
 //need to send a parameter in the get function
 export const fetchReviews = (reviewsOffset) => axios.get(`${url}/reviews?offset=${reviewsOffset}`);
