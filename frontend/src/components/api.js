@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const url = process.env.REACT_APP_BASE_URL;
-console.log(process.env)
 
 //need to send a parameter in the get function
 export const fetchReviews = (reviewsOffset) => axios.get(`${url}/reviews?offset=${reviewsOffset}`);
