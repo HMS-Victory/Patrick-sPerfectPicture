@@ -22,7 +22,8 @@ app.get("/reviews", async (req, res) => {
     const offset=parseInt(req.query.offset)+5;
     const data = db.collection("reviews").orderBy("rating", "desc").limit(!offset ? 5: offset);
     const reviews = await data.get();
-    res.set("Access-Control-Allow-Origin", );
+    res.set("Access-Control-Allow-Origin", process.env.URL);
+    console.log(process.env.URL)
     res.status(200).send(reviews.docs);
   } catch (error) {
     res.status(404).send();
@@ -34,6 +35,7 @@ app.get("/topReviews", async (req,res)=>{
     const data = db.collection("reviews").orderBy("rating", "desc").limit(limit);
     const reviews = await data.get();
     res.set("Access-Control-Allow-Origin", process.env.URL);
+    console.log(process.env.URL)
     res.status(200).send(reviews.docs)
   }catch(error){
     res.status(400).send();
