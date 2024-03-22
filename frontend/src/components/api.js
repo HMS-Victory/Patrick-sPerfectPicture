@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = process.env.BASE_URL;
+const url = process.env.REACT_APP_BASE_URL;
 console.log(process.env)
 
 //need to send a parameter in the get function
