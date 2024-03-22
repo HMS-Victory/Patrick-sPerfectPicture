@@ -26,10 +26,11 @@ function WriteAReview() {
     header: "",
   });
   //helps determine how many views to show in increments of 5
-  let reviewsOffset = 0;
-  async function getData() {
+  const [reviewsOffset, setReviewsOffset]=useState(0)
+  async function getData(offset) {
     try {
-      const data = await fetchReviews(reviewsOffset);
+      console.log(offset)
+      const data = offset ?  await fetchReviews(offset) : await fetchReviews(reviewsOffset)
       if (data.data) {
         setReviews(data.data);
       }
@@ -102,48 +103,33 @@ function WriteAReview() {
     }
   }
   function handleOnChange(event) {
-    console.log(inputValid);
     if (event.target.name === "content") {
       setInputValue({
         ...inputValue,
         content: event.target.value,
       });
-      if (inputValue.content.length < 5) {
-        setInputValid({ ...inputValid, content: false });
-      } else {
-        setInputValid({ ...inputValid, content: true });
-      }
     } else if (event.target.name === "fullName") {
       setInputValue({
         ...inputValue,
         name: event.target.value,
       });
-      if (inputValue.name.length < 3) {
-        setInputValid({ ...inputValid, name: false });
-      } else {
-        setInputValid({ ...inputValid, name: true });
-      }
     } else if (event.target.name === "email") {
       setInputValue({
         ...inputValue,
         email: event.target.value,
       });
-      if (!validateEmail(inputValue.email)) {
-        setInputValid({ ...inputValid, email: false });
-      } else {
-        setInputValid({ ...inputValid, email: true });
-      }
     } else if (event.target.name === "header") {
       setInputValue({
         ...inputValue,
         header: event.target.value,
       });
-      if (inputValue.header.length < 3) {
-        setInputValid({ ...inputValid, header: false });
-      } else {
-        setInputValid({ ...inputValid, header: true });
-      }
     }
+    setInputValid({
+      name: inputValue.name.length < 3 ? false : true,
+      email: validateEmail(inputValue.email) ? true : false,
+      content: inputValue.content.length < 1 ? false : true,
+      header: inputValue.header.length < 5 ? false : true,
+    });
   }
   return (
     <div className={styles.container}>
@@ -217,7 +203,7 @@ function WriteAReview() {
               name="email"
               onChange={handleOnChange}
               value={inputValue.email}
-              className={[!inputValid.email && styles.invalid]}
+              // className={[!inputValid.email && styles.invalid]}
               placeholder="text@mail.com"
             ></input>
           </div>
@@ -243,12 +229,13 @@ function WriteAReview() {
             ></textarea>
           </div>
           <div className={styles.buttonContainer}>
-            <button onClick={toggleReviewModal} className={styles.submitButton}>
+            <button onClick={toggleReviewModal} className={styles.submitButton} disabled={auth}>
               Cancel
             </button>
             <button
               onClick={(e) => authHandler(e)}
               className={styles.submitButton}
+              disabled={auth} 
             >
               Submit Review
             </button>
@@ -264,7 +251,7 @@ function WriteAReview() {
             ? review._fieldsProto.rating.doubleValue
             : review._fieldsProto.rating.integerValue;
           const header = review._fieldsProto.header.stringValue;
-
+          console.log(reviewsOffset)
           return (
             <div className={styles.reviewContainer} key={index}>
               <div className={styles.headerContainer}>
@@ -297,8 +284,8 @@ function WriteAReview() {
         <p
           className={styles.link}
           onClick={() => {
-            reviewsOffset += 5;
-            getData(reviewsOffset);
+            setReviewsOffset(reviewsOffset+5)
+            getData(reviewsOffset+5);
           }}
         >
           See more.
