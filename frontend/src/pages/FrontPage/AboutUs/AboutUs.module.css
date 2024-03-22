@@ -46,4 +46,7 @@
     justify-content:start;
     align-items: center;
   }
+  .textContainer{
+    max-width: 80%;
+  }
 }
