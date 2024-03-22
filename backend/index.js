@@ -68,10 +68,10 @@ app.post("/writeAReview", jsonParser, async (req, res) => {
 });
 app.post("/verification", jsonParser, async (req, res) => {
   try {
-    if(verificationCode.length>0){
-      for(let i=0; i<=verificationCode; i++){
-        if(req.body.email===verificationCode[i].email){
-          delete verificationCode[index];
+    if (verificationCode.length > 0) {
+      for (let i = 0; i < verificationCode.length; i++) {
+        if (req.body.email === verificationCode[i].email) {
+          delete verificationCode[i];
         }
       }
     }
@@ -81,7 +81,7 @@ app.post("/verification", jsonParser, async (req, res) => {
     });
 
     client.sendMail({
-      from: process.env.USERNAME,
+      from: process.env.EMAIL_USERNAME,
       to: req.body.email,
       subject: "Verify Email",
       text: `Your verification code is: ${verificationCode.map(
